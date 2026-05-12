@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriHealth Pro - 商业计划书</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+        
+        .slide {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px 80px;
+            page-break-after: always;
+        }
+        
+        .slide-white {
+            background: #fff;
+        }
+        
+        .slide-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+        }
+        
+        .slide-dark {
+            background: #1a1a2e;
+            color: #fff;
+        }
+        
+        h1 {
+            font-size: 72px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+        
+        h2 {
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 40px;
+            color: #667eea;
+        }
+        
+        .slide-gradient h2, .slide-dark h2 {
+            color: #fff;
+        }
+        
+        h3 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        p {
+            font-size: 24px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .subtitle {
+            font-size: 32px;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+        
+        .tagline {
+            font-size: 28px;
+            color: #ffd700;
+            font-weight: 500;
+            margin-top: 30px;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .grid-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .grid-4 {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        
+        .card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .slide-white .card {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+        }
+        
+        .card-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .card h4 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .card p {
+            font-size: 16px;
+            opacity: 0.8;
+        }
+        
+        .stat {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .stat-number {
+            font-size: 56px;
+            font-weight: 700;
+            color: #667eea;
+            display: block;
+        }
+        
+        .slide-gradient .stat-number,
+        .slide-dark .stat-number {
+            color: #ffd700;
+        }
+        
+        .stat-label {
+            font-size: 20px;
+            opacity: 0.8;
+            margin-top: 10px;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: rgba(102,126,234,0.3);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-bottom: 30px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -34px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #667eea;
+        }
+        
+        .timeline-item h4 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-item p {
+            font-size: 18px;
+            opacity: 0.8;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .contact-icon {
+            font-size: 32px;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+        
+        .contact-text {
+            font-size: 24px;
+        }
+        
+        @media print {
+            .slide {
+                page-break-after: always;
+                min-height: auto;
+                padding: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Slide 1: 封面 -->
+    <div class="slide slide-gradient">
+        <h1>NutriHealth Pro</h1>
+        <p class="subtitle">智能营养健康管理平台</p>
+        <p class="tagline">AI驱动的个性化营养健康解决方案</p>
+        <div style="margin-top: 60px;">
+            <p style="font-size: 20px; opacity: 0.8;">让健康管理更智能 · 让营养摄入更精准 · 让生活方式更健康</p>
+        </div>
+    </div>
+
+    <!-- Slide 2: 项目背景 -->
+    <div class="slide slide-white">
+        <h2>项目背景与市场机遇</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon">📈</div>
+                <h4>市场潜力巨大</h4>
+                <p>中国健康管理市场规模超8000亿元，年增长率15%以上</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🏥</div>
+                <h4>慢病防控需求</h4>
+                <p>慢性病患者超3亿，营养干预需求迫切</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">📱</div>
+                <h4>数字化趋势</h4>
+                <p>数字健康用户超5亿，移动健康管理成主流</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 3: 产品概述 -->
+    <div class="slide slide-white">
+        <h2>产品概述 - NutriHealth Pro</h2>
+        <p style="font-size: 24px; margin-bottom: 40px;">基于AI技术的智能营养健康管理平台，为个人用户提供全方位、个性化的营养健康解决方案</p>
+        
+        <div class="grid grid-2">
+            <div class="card">
+                <h4 style="color: #667eea;">🎯 核心定位</h4>
+                <p>为普通人群和特殊人群(孕妇、老人、慢病患者)提供专业的营养健康测评、膳食规划、运动建议和健康知识服务</p>
+            </div>
+            <div class="card">
+                <h4 style="color: #667eea;">🚀 核心优势</h4>
+                <p>AI驱动的智能推荐、专业营养知识库、个性化健康方案、全周期健康管理</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 4: 核心功能 -->
+    <div class="slide slide-gradient">
+        <h2>核心功能模块</h2>
+        <div class="grid grid-4" style="margin-top: 40px;">
+            <div class="card">
+                <div class="card-icon">📝</div>
+                <h4>智能健康测评</h4>
+                <p>多维度健康评估，风险预测</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🍽️</div>
+                <h4>AI膳食规划</h4>
+                <p>食物识别，智能推荐，营养分析</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🏃</div>
+                <h4>运动建议系统</h4>
+                <p>运动评估，个性化处方</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">📚</div>
+                <h4>知识库系统</h4>
+                <p>专业内容，AI问答助手</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 5: 技术架构 -->
+    <div class="slide slide-white">
+        <h2>技术架构 - 云原生微服务</h2>
+        <div class="grid grid-2" style="margin-top: 40px;">
+            <div>
+                <h3 style="color: #667eea; margin-bottom: 20px;">🏗️ 架构特点</h3>
+                <ul style="font-size: 20px; line-height: 2;">
+                    <li>微服务架构, 服务独立部署</li>
+                    <li>Kubernetes容器编排</li>
+                    <li>DevOps自动化流水线</li>
+                    <li>弹性伸缩, 高可用设计</li>
+                    <li>多环境隔离 (开发/测试/生产)</li>
+                </ul>
+            </div>
+            <div>
+                <h3 style="color: #667eea; margin-bottom: 20px;">🤖 AI技术栈</h3>
+                <ul style="font-size: 20px; line-height: 2;">
+                    <li>PyTorch深度学习框架</li>
+                    <li>食物识别CNN模型</li>
+                    <li>推荐系统 (DeepFM)</li>
+                    <li>LLM集成 (GPT-4/Claude)</li>
+                    <li>RAG知识检索增强</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 6: 商业模式 -->
+    <div class="slide slide-white">
+        <h2>商业模式</h2>
+        <div class="grid" style="margin-top: 40px;">
+            <div class="card">
+                <div class="card-icon">💎</div>
+                <h4>会员订阅</h4>
+                <p>月度/季度/年度会员，解锁高级功能</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">👨‍⚕️</div>
+                <h4>专家服务</h4>
+                <p>1对1营养师咨询，定制方案</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🏢</div>
+                <h4>B端服务</h4>
+                <p>企业健康管理，保险合作</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 7: 发展规划 -->
+    <div class="slide slide-gradient">
+        <h2>发展规划</h2>
+        <div class="timeline" style="margin-top: 60px;">
+            <div class="timeline-item">
+                <h4>Phase 1: MVP阶段 (已完成)</h4>
+                <p>核心功能上线，1000种子用户，验证产品市场契合度</p>
+            </div>
+            <div class="timeline-item">
+                <h4>Phase 2: 成长阶段 (当前)</h4>
+                <p>AI能力增强，10万注册用户，商业化启动</p>
+            </div>
+            <div class="timeline-item">
+                <h4>Phase 3: 扩张阶段 (2026)</h4>
+                <p>100万用户，B端业务拓展，建立行业领先地位</p>
+            </div>
+            <div class="timeline-item">
+                <h4>Phase 4: 生态阶段 (2027+)</h4>
+                <p>平台化战略，大健康生态，国际化布局</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 8: 团队介绍 -->
+    <div class="slide slide-white">
+        <h2>核心团队</h2>
+        <div class="grid grid-2" style="margin-top: 60px;">
+            <div class="card">
+                <h4>👨‍💼 CEO / 创始人</h4>
+                <p>10年互联网医疗行业经验<br>曾任知名健康平台VP<br>连续创业者</p>
+            </div>
+            <div class="card">
+                <h4>👨‍💻 CTO / 技术负责人</h4>
+                <p>15年技术架构经验<br>前阿里P8架构师<br>云原生技术专家</p>
+            </div>
+            <div class="card">
+                <h4>👩‍🔬 首席营养师</h4>
+                <p>注册营养师 / 医学博士<br>20年临床营养经验<br>多项国家级营养标准制定者</p>
+            </div>
+            <div class="card">
+                <h4>🤖 AI负责人</h4>
+                <p>清华大学AI博士<br>前百度AI实验室核心成员<br>NLP与推荐系统专家</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 9: 融资需求 -->
+    <div class="slide slide-white">
+        <h2>融资计划</h2>
+        <div style="margin-top: 60px;">
+            <div class="grid">
+                <div class="card">
+                    <h4>💰 融资金额</h4>
+                    <p style="font-size: 32px; color: #667eea; font-weight: 700;">5000万元人民币</p>
+                    <p>Pre-B轮融资</p>
+                </div>
+                <div class="card">
+                    <h4>📊 资金用途</h4>
+                    <p>• 产品研发 40%<br>• 市场推广 30%<br>• 团队建设 20%<br>• 运营资金 10%</p>
+                </div>
+                <div class="card">
+                    <h4>🎯 里程碑目标</h4>
+                    <p>• 18个月内达到100万注册用户<br>• 实现月度盈亏平衡<br>• 启动B端业务线</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 10: 联系我们 -->
+    <div class="slide slide-gradient">
+        <h1>感谢关注</h1>
+        <p class="subtitle">NutriHealth Pro - 让每个人都拥有专属的健康管家</p>
+        
+        <div style="margin-top: 80px;">
+            <div class="contact-info" style="align-items: center;">
+                <div class="contact-item" style="justify-content: center;">
+                    <div class="contact-icon">🌐</div>
+                    <div class="contact-text">www.nutrihealth.com</div>
+                </div>
+                <div class="contact-item" style="justify-content: center;">
+                    <div class="contact-icon">✉️</div>
+                    <div class="contact-text">contact@nutrihealth.com</div>
+                </div>
+                <div class="contact-item" style="justify-content: center;">
+                    <div class="contact-icon">📍</div>
+                    <div class="contact-text">北京市海淀区中关村科技园</div>
+                </div>
+            </div>
+        </div>
+        
+        <p style="margin-top: 60px; font-size: 20px; opacity: 0.8;">期待与您合作,共创健康未来!</p>
+    </div>
+
+</body>
+</html>
